@@ -10,13 +10,13 @@ void setup() {
   pinMode(4, INPUT);      // Sensor Pin 1
   pinMode(5, INPUT);      // Sensor Pin 2
 
-  Serial.begin(9600);
+  Serial.begin(9600);     //9600 is bandwith of the Arduino 
 }
 
 void loop() {
   // LINE FOLLOWER CODE
-
-  int ls = digitalRead(4);
+  //ls & rs is communicate pins use to interface
+  int ls = digitalRead(4);   
   int rs = digitalRead(5);
 
   Serial.print("Sensor 1 value: ");   // Display the sensor 1 value
@@ -25,13 +25,14 @@ void loop() {
   Serial.println(rs);
 
   // To move the bot forward
+  //HIGH=1 , LOW=0 here 0 & 1 is binary input
   if ((ls == HIGH) && (rs == HIGH)) {
     digitalWrite(12, HIGH);
     digitalWrite(13, LOW);
     digitalWrite(14, HIGH);
     digitalWrite(15, LOW);
     Serial.print("Moving forward...");
-    delay(2000);
+    delay(2000);    //delay in ms
   }
 
   // To turn right
